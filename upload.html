@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Загрузка файлов</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #343a40;
+      padding: 1rem 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .upload-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .dropzone {
+      border: 2px dashed #007bff;
+      border-radius: 20px;
+      padding: 2rem;
+      background: #f8f9fa;
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .dropzone:hover {
+      background: #e2e6ea;
+      border-color: #0056b3;
+    }
+
+    .dropzone .material-icons {
+      font-size: 48px;
+      color: #007bff;
+    }
+
+    .dropzone-text {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    .upload-btn {
+      margin-top: 1.5rem;
+      background: #28a745;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .upload-btn:hover {
+      background: #218838;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #aaa;
+      text-align: center;
+      padding: 0.1rem;
+      font-size: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="files.html">Files</a>
+      <a href="profile.html">Profile</a>
+      <span id="admin-link"></span> <!-- место для upload -->
+    </nav>
+    
+    <script>
+      if (localStorage.getItem('isAdmin') === 'true') {
+        document.getElementById('admin-link').innerHTML = '<a href="upload.html">Upload</a>';
+      }
+    </script>
+  </header>
+
+  <main>
+    <div class="upload-container">
+      <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+        <div class="dropzone" id="dropzone">
+          <span class="material-icons">cloud_upload</span>
+          <div class="dropzone-text" id="dropzone-text">Перетащите сюда файл или нажмите для выбора</div>
+          <input type="file" name="file" id="file" class="file-input" required>
+        </div>
+        <button type="submit" class="upload-btn">Загрузить</button>
+      </form>
+    </div>
+  </main>
+  <button onclick="logout()">Logout</button>
+  
+  <script>
+    function logout() {
+      localStorage.removeItem('isAdmin');
+      window.location.href = 'index.html'; // Переход на главную
+    }
+  </script>
+
+
+  <footer>единая группа, разные названия</footer>
+
+  <script>
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('file');
+    const dropzoneText = document.getElementById('dropzone-text');
+
+    dropzone.addEventListener('click', () => {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        dropzoneText.textContent = `Выбран файл: ${fileInput.files[0].name}`;
+      }
+    });
+
+    dropzone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropzone.classList.add('dragover');
+    });
+
+    dropzone.addEventListener('dragleave', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+      if (e.dataTransfer.files.length > 0) {
+        fileInput.files = e.dataTransfer.files;
+        dropzoneText.textContent = `Выбран файл: ${e.dataTransfer.files[0].name}`;
+      }
+    });
+    if (localStorage.getItem('isAdmin') !== 'true') {
+        window.location.href = 'login.html'; // Если не админ — перекидываем на логин
+      }
+  </script>
+
+</body>
+
+</html>

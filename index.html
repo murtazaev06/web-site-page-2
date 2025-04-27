@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЭКОМЭЕН</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="files.html">Files</a>
+      <a href="profile.html">Profile</a>
+      <span id="admin-link"></span> <!-- место для upload -->
+    </nav>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    
+      body {
+        font-family: 'Arial', sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+    
+      header {
+        background-color: #343a40;
+        padding: 1rem 2rem;
+      }
+    
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+      }
+    
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    
+      nav a:hover {
+        text-decoration: underline;
+      }
+    
+      main {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+      }
+      footer {
+        background-color: #343a40;
+        color: #aaa;
+        text-align: center;
+        padding: 0.1rem;
+        font-size: 10px;
+      }
+    </style>
+    
+    <script>
+      if (localStorage.getItem('isAdmin') === 'true') {
+        document.getElementById('admin-link').innerHTML = '<a href="upload.html">Upload</a>';
+      }
+    </script>    
+  </header>
+
+  <main>
+    <section class="content">
+      <h1>Добро пожаловать в ЭкоМэн</h1>
+      <p>Здесь вы можете посмотреть свои и не только работы</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>единая группа, разные названия</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header {
+    background-color: #343a40;
+    padding: 1rem 2rem;
+  }
+  .grid {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-top: 1em;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: #343a40;
+    color: #aaa;
+    text-align: center;
+    padding: 0.1rem;
+    font-size: 10px;
+  }
+  .delete-btn {
+    padding: 0.5rem 1rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .delete-btn:hover {
+    background-color: #c82333;
+  }
+  .file-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .file-icon, .file-preview {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+  }
+  .file-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+  }
+    .file-preview {
+    width: 60px;
+    height: 60px;
+    background: #f1f1f1;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .material-icons {
+    font-size: 32px;
+    color: #4a4a4a;
+  }  
+  .file-name {
+    font-weight: bold;
+    color: #333;
+  }
+  .file-size {
+    font-size: 0.8rem;
+    color: gray;
+  }
+  .download-btn {
+    padding: 0.5rem 1rem;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+  .download-btn:hover {
+    background-color: #218838;
+  }
+  .file-preview img,
+.file-preview video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.file-preview-audio {
+  width: 100%;
+}
+
+.file-card {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.file-card:hover {
+  transform: scale(1.02);
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img, .card video {
+  max-width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.preview {
+  margin-bottom: 0.5em;
+}
+
+.big-icon {
+  font-size: 64px;
+  color: #6200ea;
+}
+
+.folder-icon {
+  font-size: 64px;
+  color: #ffb300;
+}
+
+.btn {
+  background: #6200ea;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.btn.small {
+  padding: 0.3em 0.7em;
+  font-size: 0.9em;
+}
+
+.btn:hover {
+  background: #3700b3;
+}
+
+form {
+  margin-top: 2em;
+}
+
+input[type="text"] {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  margin-right: 0.5em;
+}
+
+  
+  
+  
