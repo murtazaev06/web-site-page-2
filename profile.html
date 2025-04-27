@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile - Login</title>
   <link rel="stylesheet" href="style.css">
   <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: content-box;
-      }
-    
-      body {
-        font-family: 'Arial', sans-serif;
-        background: #f4f6f8;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-    
-      header {
-        background-color: #343a40;
-        padding: 1rem 2rem;
-      }
-    
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
-      }
-    
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        font-weight: bold;
-      }
-    
-      nav a:hover {
-        text-decoration: underline;
-      }
-    
-      main {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem;
-      }
-      footer {
-        background-color: #343a40;
-        color: #aaa;
-        text-align: center;
-        padding: 0.1rem;
-        font-size: 10px;
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #343a40;
+      padding: 1rem 2rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #aaa;
+      text-align: center;
+      padding: 0.1rem;
+      font-size: 10px;
+    }
+
     .login-container {
       background: white;
       padding: 30px;
@@ -64,6 +69,7 @@
       width: 300px;
       text-align: center;
       
+
     }
 
     input {
@@ -91,43 +97,45 @@
   </style>
 </head>
 <header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="files.html">Files</a>
-        <a href="profile.html">Profile</a>
-        <span id="admin-link"></span> <!-- место для upload -->
-      </nav>
-      
-      <script>
-        if (localStorage.getItem('isAdmin') === 'true') {
-          document.getElementById('admin-link').innerHTML = '<a href="upload.html">Upload</a>';
-        }
-      </script>
-      
+  <nav>
+    <a href="index.html">ЭкоМэн</a>
+    <a href="files.html">Файлы</a>
+    <a href="profile.html">Профиль</a>
+    <span id="admin-link"></span> <!-- место для upload -->
+  </nav>
+
+  <script>
+    if (localStorage.getItem('isAdmin') === 'true') {
+      document.getElementById('admin-link').innerHTML = '<a href="upload.html">Загрузить файл</a>';
+    }
+  </script>
+
 </header>
+
 <body>
+  <main>
+    <div class="login-container">
+      <h2>Admin Login</h2>
+      <input type="text" id="username" placeholder="Username"><br>
+      <input type="password" id="password" placeholder="Password"><br>
+      <button onclick="login()">Login</button>
+      <div class="error" id="error"></div>
+    </div>
+  </main>
 
-<div class="login-container">
-  <h2>Admin Login</h2>
-  <input type="text" id="username" placeholder="Username"><br>
-  <input type="password" id="password" placeholder="Password"><br>
-  <button onclick="login()">Login</button>
-  <div class="error" id="error"></div>
-</div>
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-<script>
-function login() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-
-  if (username === 'shaxrux' && password === '70183635') {
-    localStorage.setItem('isAdmin', 'true');
-    window.location.href = 'index.html'; // После входа идём на главную
-  } else {
-    document.getElementById('error').innerText = 'Incorrect login or password!';
-  }
-}
-</script>
+      if (username === 'shaxrux' && password === '70183635') {
+        localStorage.setItem('isAdmin', 'true');
+        window.location.href = 'index.html'; // После входа идём на главную
+      } else {
+        document.getElementById('error').innerText = 'Incorrect login or password!';
+      }
+    }
+  </script>
 
 </body>
 
