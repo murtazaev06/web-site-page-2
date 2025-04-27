@@ -39,6 +39,7 @@
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      padding: 1rem;
     }
 
     nav a:hover {
@@ -313,15 +314,15 @@
 
   <header>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="files.html">Files</a>
-      <a href="profile.html">Profile</a>
+      <a href="index.html">ЭкоМэн</a>
+      <a href="files.html">Файлы</a>
+      <a href="profile.html">Профиль</a>
       <span id="admin-link"></span> <!-- место для upload -->
     </nav>
     
     <script>
       if (localStorage.getItem('isAdmin') === 'true') {
-        document.getElementById('admin-link').innerHTML = '<a href="upload.html">Upload</a>';
+        document.getElementById('admin-link').innerHTML = '<a href="upload.html">Загрузить файл</a>';
       }
     </script>
     
